@@ -1,0 +1,54 @@
+Name: 		nrpe-grep
+Version: 	0.1
+Release:	0%{?dist}
+Summary:	Run nrpe-grep
+BuildArch: 	noarch
+
+
+Group:		ETN
+License:	GPL
+#URL:		http://upstream-url.org/path
+Source0: 	nrpe-grep
+Source1: 	nrpe-nagservicedef
+Source2: 	README.txt
+BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
+
+
+#BuildRequires:	sed
+#Requires: sudo
+
+
+%description
+no description
+
+
+%prep
+cp -p %SOURCE0 .
+cp -p %SOURCE1 .
+cp -p %SOURCE2 .
+
+
+%build
+
+
+%install
+#rm -rf $RPM_BUILD_ROOT
+install -D nrpe-grep $RPM_BUILD_ROOT/usr/bin/nrpe-grep
+install -D nrpe-nagservicedef $RPM_BUILD_ROOT/usr/bin/nrpe-nagservicedef
+
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+
+%files
+%defattr(-,root,root,-)
+%doc README.txt
+/usr/bin/nrpe-grep
+/usr/bin/nrpe-nagservicedef
+
+
+%changelog
+* Thu Mar 07 2013 <jahor@jhr.cz> 0.1-0
+- initical rpm packaging
+
