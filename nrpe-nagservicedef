@@ -1,0 +1,16 @@
+#!/bin/bash
+
+check="$1"
+hostname=$(hostname -f)
+
+[ -n "$check" ] || exit 1
+
+cat << EOF
+define service{
+        use                             SYSMON-LA
+        host_name                       $hostname
+        service_description             sys:${check#check_}
+        check_command                   check_nrpe!5666!${check}
+}
+EOF
+

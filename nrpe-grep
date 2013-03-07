@@ -1,0 +1,37 @@
+#!/bin/bash
+
+[ -n "$NAGCFGDIRS" ] \
+    || NAGCFGDIRS="/etc/nagios /etc/nrpe.d"
+
+###
+
+case $1 in
+	-detail)
+		format=detail
+		;;
+	-short)
+		format=short
+		;;
+	*)
+		format=normal
+		;;
+esac
+
+for cfgdir in $NAGCFGDIRS
+do
+	grep -H '^command\[' $(echo $cfgdir/*.cfg)
+done  \
+| sed -e 's/:command\[/,/' -e 's/]=/,/' -e 's/ /,/' \
+| while IFS=, read file cmd check params
+do
+	case $format in
+		detail)
+			printf "%-20s %s,%s,%s\n" "$cmd" "$file" "$check" "$params"
+			;;
+		normal)
+			printf "%-20s %s\n" "$cmd" "$file"
+			;;
+		short)
+			printf "%-20s %s\n" "$cmd"
+	esac
+done
