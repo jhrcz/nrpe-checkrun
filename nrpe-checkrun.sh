@@ -1,7 +1,12 @@
 #!/bin/bash
 
 CHECK=$1
-HOST=127.0.0.1
+if [ -z "$2" ]
+then
+	HOST=127.0.0.1
+else
+	HOST="$2"
+fi
 
 [ -n "$CHECK" ] \
 	|| exit 2
