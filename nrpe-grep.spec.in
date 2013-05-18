@@ -17,7 +17,7 @@ BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 
 #BuildRequires:	sed
 Requires: nagios-plugins-nrpe
-Replaces: nrpe-grep
+Obsoletes: nrpe-grep
 
 %description
 no description
