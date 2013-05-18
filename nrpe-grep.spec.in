@@ -15,7 +15,7 @@ BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 
 
 #BuildRequires:	sed
-#Requires: sudo
+Requires: nagios-plugins-nrpe
 
 
 %description
