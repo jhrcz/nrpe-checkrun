@@ -15,14 +15,14 @@ check_load           /etc/nagios/nrpe.cfg
 
 ** short
 ```
-# ./nrpe-grep -short | head -n 2
+# ./nrpe-grep --short | head -n 2
 check_users          
 check_load
 ```
 
 ** detail
 ```
-# nrpe-grep -detail | head -n 2
+# nrpe-grep --detail | head -n 2
 check_users          /etc/nagios/nrpe.cfg,/usr/lib64/nagios/plugins/check_users,-w 5 -c 10
 check_load           /etc/nagios/nrpe.cfg,/usr/lib64/nagios/plugins/check_load,-w 15,10,5 -c 30,25,20
 
