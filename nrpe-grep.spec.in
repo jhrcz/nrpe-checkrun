@@ -1,5 +1,5 @@
-Name: 		nrpe-list
-Version: 	0.1
+Name: 		nrpe-checkrun
+Version: 	0.2
 Release:	0%{?dist}
 Summary:	Additional utilites for nrpe
 BuildArch: 	noarch
@@ -52,6 +52,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun May 19 2013 <jahor@jhr.cz> 0.2-0
+- merged nrpe-list (nrpe-grep+nrpe-nagservicedef) and nrpe-checkrun
+
 * Thu Mar 07 2013 <jahor@jhr.cz> 0.1-0
 - initical rpm packaging
 
