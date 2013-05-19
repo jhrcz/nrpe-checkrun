@@ -10,7 +10,7 @@ License:	GPL
 #URL:		http://upstream-url.org/path
 Source0: 	nrpe-list
 Source1: 	nrpe-nagservicedef
-Source2: 	README.txt
+Source2: 	README.md
 Source3: 	nrpe-checkrun
 BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 
@@ -45,7 +45,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%doc README.txt
+%doc README.md
 /usr/bin/nrpe-list
 /usr/bin/nrpe-nagservicedef
 /usr/bin/nrpe-checkrun
