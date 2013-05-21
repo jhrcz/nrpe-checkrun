@@ -6,26 +6,26 @@ dirs define by default could be overriden by NAGCFGDIR
 
 there are multiple output formats:
 
-** normal
+  * normal
 ```
 # nrpe-list | head -n 2
 check_users          /etc/nagios/nrpe.cfg
 check_load           /etc/nagios/nrpe.cfg
 ```
 
-** short
+  * short
 ```
 # ./nrpe-list --short | head -n 2
 check_users          
 check_load
 ```
 
-** detail
+  * detail
 ```
 # nrpe-list --detail | head -n 2
 check_users          /etc/nagios/nrpe.cfg,/usr/lib64/nagios/plugins/check_users,-w 5 -c 10
 check_load           /etc/nagios/nrpe.cfg,/usr/lib64/nagios/plugins/check_load,-w 15,10,5 -c 30,25,20
-
+```
 
 real world example of nrpe-list with nrpe-nagservicedef
 ========================================================================
@@ -62,7 +62,7 @@ DISK OK - free space: / 10911 MB (82% inode=92%); /dev/shm 1003 MB (100% inode=9
 
 using with nrpe-list for checking all localy configured nrpe checks
 ```
-# nrpe-list  | while read ch cfg ; do echo "=== $ch" ; ~/nrpe-checkrun.sh $ch ; done
+# nrpe-list  | while read ch cfg ; do echo "=== $ch" ; nrpe-checkrun $ch ; done
 === check_users
 USERS OK - 1 users currently logged in |users=1;5;10;0
 === check_hda1
