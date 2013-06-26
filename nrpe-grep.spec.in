@@ -1,5 +1,5 @@
 Name: 		nrpe-checkrun
-Version: 	0.2
+Version: 	0.3
 Release:	0%{?dist}
 Summary:	Additional utilites for nrpe
 BuildArch: 	noarch
@@ -52,6 +52,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun Jun 26 2013 <jahor@jhr.cz> 0.3-0
+- arg -a for running all checks
+
 * Sun May 19 2013 <jahor@jhr.cz> 0.2-0
 - merged nrpe-list (nrpe-grep+nrpe-nagservicedef) and nrpe-checkrun
 
