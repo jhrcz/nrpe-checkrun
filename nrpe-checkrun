@@ -13,5 +13,14 @@ fi
 [ -n "$HOST" ] \
 	|| exit 2
 
-/usr/lib64/nagios/plugins/check_nrpe -H "$HOST" -c "$CHECK"
+if [ "$CHECK" = "-a" ]
+then
+	CHECKS="$(nrpe-list -s)"
+else
+	CHECKS="$CHECK"
+fi
 
+for check in $CHECKS
+do
+	/usr/lib64/nagios/plugins/check_nrpe -H "$HOST" -c "$check"
+done
