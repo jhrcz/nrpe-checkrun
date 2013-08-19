@@ -19,8 +19,10 @@ then
 else
 	CHECKS="$CHECK"
 fi
-
+	
 for check in $CHECKS
 do
-	/usr/lib64/nagios/plugins/check_nrpe -H "$HOST" -c "$check"
+	output=$(/usr/lib64/nagios/plugins/check_nrpe -H "$HOST" -c "$check")
+	exit_code=$?
+	printf "%20s %4d, %s\n" "$check" "$exit_code" "$output"
 done
