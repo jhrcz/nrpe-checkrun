@@ -1,0 +1,19 @@
+#!/bin/bash
+
+_nrpe-checkrun()
+{
+	local cur=${COMP_WORDS[COMP_CWORD]}
+	local prev=${COMP_WORDS[COMP_CWORD-1]}
+	local args
+
+	if [ "$COMP_CWORD" = "1" ]
+	then
+		args="-a $(nrpe-list -s | sed -e 's,$, ,g')"
+	else
+		args=""
+	fi
+
+	COMPREPLY=( $( compgen -W "${args}" -- ${cur} ) )
+	return 0
+}
+complete -F _nrpe-checkrun nrpe-checkrun

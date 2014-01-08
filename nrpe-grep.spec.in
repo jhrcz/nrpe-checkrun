@@ -12,6 +12,7 @@ Source0: 	nrpe-list
 Source1: 	nrpe-nagservicedef
 Source2: 	README.md
 Source3: 	nrpe-checkrun
+Source4: 	nrpe-checkrun.completion
 BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 
 
@@ -28,6 +29,7 @@ cp -p %SOURCE0 .
 cp -p %SOURCE1 .
 cp -p %SOURCE2 .
 cp -p %SOURCE3 .
+cp -p %SOURCE4 .
 
 
 %build
@@ -38,6 +40,7 @@ cp -p %SOURCE3 .
 install -D nrpe-list $RPM_BUILD_ROOT/usr/bin/nrpe-list
 install -D nrpe-nagservicedef $RPM_BUILD_ROOT/usr/bin/nrpe-nagservicedef
 install -D nrpe-checkrun $RPM_BUILD_ROOT/usr/bin/nrpe-checkrun
+install -D nrpe-checkrun.completion $RPM_BUILD_ROOT/etc/bash_completion.d/nrpe-checkrun
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -46,6 +49,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 %doc README.md
+%config /etc/bash_completion.d/nrpe-checkrun
 /usr/bin/nrpe-list
 /usr/bin/nrpe-nagservicedef
 /usr/bin/nrpe-checkrun
