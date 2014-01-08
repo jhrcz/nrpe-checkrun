@@ -1,5 +1,5 @@
 Name: 		nrpe-checkrun
-Version: 	0.4
+Version: 	0.5
 Release:	0%{?dist}
 Summary:	Additional utilites for nrpe
 BuildArch: 	noarch
@@ -56,6 +56,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Wed Jan 08 2014 jahor - 0.5-0
+- rename spec to be in sync with package name
+- initial bash completion
+
 * Tue Sep 10 2013 <jahor@jhr.cz> 0.4-0
 - enhance nrpe-checkrun output with check name and exit status
 
